@@ -1,0 +1,9 @@
+{% extends 'schooltje/base.html' %}
+{% block nav-index %}class="active"{% endblock %}
+
+{% block content %}
+    <div>
+        <p>{{ greeting }}</p>
+        <p>Kijk rond op onze website of klik door naar het <a href="{% url 'schooltje:contact' %}">contactformulier</a> voor verdere vragen.</p>
+    </div>
+{% endblock %}

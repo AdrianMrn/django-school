@@ -1,0 +1,21 @@
+{% extends 'schooltje/base.html' %}
+{% block nav-richtingen %}class="active"{% endblock %}
+
+{% block content %}
+
+<h1>Ons aanbod</h1>
+
+{% if richtingen_list %}
+    {% for richting in richtingen_list %}
+
+        <div>
+            <h3>{{ richting.naam }}</h3>
+            <p>{{ richting.omschrijving }}</p>
+        </div>
+
+    {% endfor %}
+{% else %}
+    <p>Er zijn geen richtingen beschikbaar.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'schooltje/base.html' %}
+{% block nav-wieiswie %}class="active"{% endblock %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>Het personeel</h1>
+
+{% if leraren_list %}
+    {% for leraar in leraren_list %}
+
+        <div>
+            <h3>{{ leraar.voornaam }} {{ leraar.naam }} </h3>
+            <div><p>{{ leraar.email }}</p></div>
+            <div><img src="{% static leraar.foto %}" alt="foto leraar" style="max-width: 20%; max-height: 200px"/></div>
+            <div>Klassen:
+            {% if leraar.klassen %}
+                <ul>
+                {% for klas in leraar.klassen %}
+                    <li>{{ klas.richting }}, {{ klas.naam }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                Geen beschikbaar
+            {% endif %}
+            </div>
+        </div>
+
+    {% endfor %}
+{% else %}
+    <p>Er zijn geen leraren beschikbaar.</p>
+{% endif %}
+
+{% endblock %}
